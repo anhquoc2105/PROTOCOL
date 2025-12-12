@@ -87,6 +87,8 @@ UART luôn lấy mẫu ở trung tâm mỗi bit vì đây là thời điểm tí
 - Fast-plus: 1 MHz
 - High-speed: 3.4 MHz
 
+![](toc_do_truyen_uart.jpg)
+
 #### Ưu điểm
 - Ít dây nhất (2 dây).
 - Hỗ trợ multi-master, multi-slave.
