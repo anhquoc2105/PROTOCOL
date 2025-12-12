@@ -1,7 +1,9 @@
 # 📌 CÁC GIAO THỨC CƠ BẢN
 
 ### Tổng quan:
+- Tốc độ truyền data:
 
+![](toc_do.jpg)
 
 
 ## 1. UART (Universal Asynchronous Receiver – Transmitter)
@@ -17,11 +19,14 @@
 - Không hỗ trợ nhiều thiết bị trên cùng bus (chỉ điểm–điểm).
 
 #### Frame dữ liệu:
-- Một frame UART gồm:
-- Start bit
-- (7/8/9) data bit
-- Optional: parity bit
-- 1 hoặc 2 stop bit
+![](dinh_dang_frame.jpg)
+
+Một frame UART gồm:
+- IDLE – Đường truyền ở mức HIGH khi không có dữ liệu.
+- Start bit (St) – Luôn là LOW, đánh dấu bắt đầu frame.
+- Data bits (n) – Từ 5 đến 9 bit, truyền từ bit thấp (LSB) đến bit cao (MSB).
+- Parity bit (P) – Tuỳ chọn; dùng để kiểm tra lỗi (odd hoặc even).
+- Stop bit (Sp) – Luôn là HIGH; có thể là 1 hoặc 2 bit, dùng để kết thúc frame.
 #### Ưu điểm
 - Đơn giản, dễ dùng.
 - Khoảng cách truyền xa hơn SPI/I2C.
