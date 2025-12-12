@@ -30,6 +30,7 @@
 - Không đồng bộ → dễ lỗi nếu sai baud rate.
 ### Quá trình UART nhận dữ liệu
 ![](qua_trinh_nhan_uart.jpg)
+
 UART hoạt động bất đồng bộ, vì vậy bên nhận phải tự canh thời điểm lấy mẫu dữ liệu. Quá trình nhận một frame diễn ra như sau:
 
 - Idle: đường RX ở mức HIGH khi không truyền.
