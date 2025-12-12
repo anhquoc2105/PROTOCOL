@@ -10,7 +10,7 @@
 | ![Sơ đồ UART](uart.jpg) |
 | :---: |
 | *Sơ đồ kết nối UART* |
-#### Đặc điểm:
+### Đặc điểm:
 - **Giao tiếp nối tiếp bất đồng bộ** (không có clock).
 - Truyền dữ liệu qua **2 dây chính**:
     + TX – truyền
@@ -18,7 +18,7 @@
 - Tốc độ truyền cấu hình bằng **baud rate** (9600, 115200,…).
 - Không hỗ trợ nhiều thiết bị trên cùng bus (chỉ điểm–điểm).
 
-#### Frame dữ liệu:
+### Frame dữ liệu:
 ![](dinh_dang_frame.jpg)
 
 Một frame UART gồm:
@@ -27,14 +27,14 @@ Một frame UART gồm:
 - Data bits (n) – Từ 5 đến 9 bit, truyền từ bit thấp (LSB) đến bit cao (MSB).
 - Parity bit (P) – Tuỳ chọn; dùng để kiểm tra lỗi (odd hoặc even).
 - Stop bit (Sp) – Luôn là HIGH; có thể là 1 hoặc 2 bit, dùng để kết thúc frame.
-#### Tốc độ truyền data
+### Tốc độ truyền data
 
 ![](toc_do_truyen_uart.jpg)
 
-#### Ưu điểm
+### Ưu điểm
 - Đơn giản, dễ dùng.
 - Khoảng cách truyền xa hơn SPI/I2C.
-#### Nhược điểm
+### Nhược điểm
 - Chỉ giao tiếp 1–1.
 - Không đồng bộ → dễ lỗi nếu sai baud rate.
 ### Quá trình UART nhận dữ liệu
@@ -52,8 +52,7 @@ UART luôn lấy mẫu ở trung tâm mỗi bit vì đây là thời điểm tí
 
 ---
 ## 2. SPI (Serial Peripheral Interface)
-
-#### Đặc điểm
+### Đặc điểm
 - Giao tiếp nối tiếp đồng bộ.
 - Tốc độ rất nhanh (vài MHz đến hàng chục MHz).
 - Sử dụng ít nhất 4 dây:
@@ -63,21 +62,21 @@ UART luôn lấy mẫu ở trung tâm mỗi bit vì đây là thời điểm tí
     + CS/SS – Chip Select
 - Hỗ trợ nhiều slave bằng nhiều chân CS.
 
-#### Cấu trúc
+### Cấu trúc
 - 1 Master – nhiều Slave
 - Master điều khiển clock
 
-#### Ưu điểm
+### Ưu điểm
 - Tốc độ cao nhất trong 3 giao thức.
 - Truyền full-duplex.
 
-#### Nhược điểm
+### Nhược điểm
 - Tốn nhiều -chân GPIO (đặc biệt nhiều slave).
 - Không có chuẩn quy định cứng, mỗi hãng có thể khác nhau.
 
 ---
 ## 3. I2C (Inter-Integrated Circuit)
-#### Đặc điểm
+### Đặc điểm
 - Giao tiếp đồng bộ, 2 dây duy nhất:
     + SCL – Clock
     + SDA – Data
@@ -85,7 +84,7 @@ UART luôn lấy mẫu ở trung tâm mỗi bit vì đây là thời điểm tí
 - Mỗi thiết bị có một địa chỉ (address).
 - Dùng điện trở kéo lên (pull-up) trên SDA, SCL.
 
-#### Tốc độ
+### Tốc độ
 - Standard: 100 kHz
 - Fast: 400 kHz
 - Fast-plus: 1 MHz
@@ -93,12 +92,12 @@ UART luôn lấy mẫu ở trung tâm mỗi bit vì đây là thời điểm tí
 
 
 
-#### Ưu điểm
+### Ưu điểm
 - Ít dây nhất (2 dây).
 - Hỗ trợ multi-master, multi-slave.
 - Phù hợp cảm biến nhỏ.
 
-#### Nhược điểm
+### Nhược điểm
 - Tốc độ thấp hơn SPI.
 - Kéo điện trở → nhiễu dễ ảnh hưởng.
 - Giao thức phức tạp hơn UART/SPI.
