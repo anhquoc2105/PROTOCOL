@@ -27,6 +27,10 @@ Một frame UART gồm:
 - Data bits (n) – Từ 5 đến 9 bit, truyền từ bit thấp (LSB) đến bit cao (MSB).
 - Parity bit (P) – Tuỳ chọn; dùng để kiểm tra lỗi (odd hoặc even).
 - Stop bit (Sp) – Luôn là HIGH; có thể là 1 hoặc 2 bit, dùng để kết thúc frame.
+#### Tốc độ truyền data
+
+![](toc_do_truyen_uart.jpg)
+
 #### Ưu điểm
 - Đơn giản, dễ dùng.
 - Khoảng cách truyền xa hơn SPI/I2C.
@@ -87,7 +91,7 @@ UART luôn lấy mẫu ở trung tâm mỗi bit vì đây là thời điểm tí
 - Fast-plus: 1 MHz
 - High-speed: 3.4 MHz
 
-![](toc_do_truyen_uart.jpg)
+
 
 #### Ưu điểm
 - Ít dây nhất (2 dây).
