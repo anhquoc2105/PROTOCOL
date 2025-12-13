@@ -83,7 +83,8 @@ UART luôn lấy mẫu ở trung tâm mỗi bit vì đây là thời điểm tí
 - Hỗ trợ rất nhiều thiết bị trên cùng bus (địa chỉ 7/10 bit).
 - Mỗi thiết bị có một địa chỉ (address).
 - Dùng điện trở kéo lên (pull-up) trên SDA, SCL.
-
+### Frame tryền
+![](goi_tin_i2c.jpg)
 ### Tốc độ
 - Standard: 100 kHz
 - Fast: 400 kHz
