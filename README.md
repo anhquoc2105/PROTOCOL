@@ -75,16 +75,45 @@ UART luôn lấy mẫu ở trung tâm mỗi bit vì đây là thời điểm tí
 - Không có chuẩn quy định cứng, mỗi hãng có thể khác nhau.
 
 ---
-## 3. I2C (Inter-Integrated Circuit)
+## 3. I2C (Inter-Integrated Circuit) (Giao thức 2 dây)
+![](i2c.jpg)
 ### Đặc điểm
-- Giao tiếp đồng bộ, 2 dây duy nhất:
+- **Giao tiếp đồng bộ**, 2 dây duy nhất:
     + SCL – Clock
     + SDA – Data
 - Hỗ trợ rất nhiều thiết bị trên cùng bus (địa chỉ 7/10 bit).
 - Mỗi thiết bị có một địa chỉ (address).
 - Dùng điện trở kéo lên (pull-up) trên SDA, SCL.
 ### Frame tryền
+
 ![](goi_tin_i2c.jpg)
+
+Một bản tin I2C gồm các phần sau:
+
+- Start Condition (START)
+    + Master kéo SDA từ HIGH xuống LOW khi SCL đang HIGH → báo hiệu bắt đầu truyền.
+
+- Address Frame (7 hoặc 10 bit)
+    + Master gửi địa chỉ của slave cần giao tiếp.
+
+- Read/Write Bit (R/W)
+    + 0 → Master ghi (write) dữ liệu cho slave
+    + 1 → Master đọc (read) dữ liệu từ slave
+
+- ACK/NACK Bit
+    + Sau mỗi byte (địa chỉ hoặc dữ liệu), bên nhận phải gửi ACK (SDA = 0) để xác nhận đã nhận thành công.
+    + Nếu không ACK → NACK (SDA = 1).
+
+- Data Frame (8 bit)
+    + Dữ liệu được truyền theo từng byte 8 bit.
+    + Sau mỗi byte dữ liệu luôn có 1 bit ACK/NACK.
+
+- Stop Condition (STOP)
+    + Master kéo SDA từ LOW lên HIGH khi SCL đang HIGH → kết thúc truyền.
+
+📌 Nguyên tắc quan trọng:
+- Trong I2C, bên nhận dữ liệu luôn là bên phát ACK sau mỗi byte (Sau mỗi byte dữ liệu, bên nhận kéo SDA xuống (ACK) hoặc giữ HIGH (NACK) ở xung clock thứ 9).
+
 ### Tốc độ
 - Standard: 100 kHz
 - Fast: 400 kHz
